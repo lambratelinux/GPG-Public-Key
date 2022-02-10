@@ -1,0 +1,41 @@
+### LAMBRATE LINUX https://lambratelinux.org
+### CREAZIONE GPG Pubblica e firmata di Lambrate Linux
+### TUTTI I COMANDI GPG
+### Crearla con il programma font-end Seahorse (se non è installato: dnf install seahorse)
+### 1) Pigiare su +
+### 2) Chiave PGP
+### 3) Inserire:
+######### Nome completo: Lambrate Linux
+######### email: info@lambratelinux.org
+######### Commento: Chiave usata per il sito lambratelinux.org
+######### Tipo di cifratura: rsa
+######### Dimensione della chiave (in bit): 4096
+######### Nessuna data di scadenza
+### 4) pigiare Crea
+### FATTO!
+### Verifica creazione
+
+gpg --fingerprint "Lambrate Linux (Chiave usata per il sito lambratelinux.org) <info@lambratelinux.org>"
+### output del comando di cui sopra:
+#########> pub   rsa4096 2022-02-07 [SC]
+#########>      D7D3 BBB8 B5B8 DC94 4744  6E56 1BA9 5B50 BC6D B5AE
+#########> uid           [ultimo] Lambrate Linux (Chiave usata per il sito lambratelinux.org) <info@lambratelinux.org>
+#########> sub   rsa4096 2022-02-07 [E]
+
+### Esportare la chiave pubblica (per renderla leggibile in ASCII)
+gpg --export -a "Lambrate Linux (Chiave usata per il sito lambratelinux.org) <info@lambratelinux.org>" > lambrate-linux-public.key
+
+### Firmare la chiave pubblica
+gpg --local-user D7D3BBB8B5B8DC9447446E561BA95B50BC6DB5AE --output lambrate-linux-public-key.sig --sign lambrate-linux-public.key
+
+### Verificare che la chiave pubblica sia firmata
+gpg --local-user 1BA95B50BC6DB5AE --verify lambrate-linux-public-key.sig
+
+### Controllare che la chiave pubblica sia quella giusta (ovvero ricrearla con la firma) per renderla disponibile a tutti
+gpg --local-user 1BA95B50BC6DB5AE --output lambrate-linux-public-key.asc --decrypt lambrate-linux-public-key.sig
+gpg --local-user 1BA95B50BC6DB5AE --clearsign lambrate-linux-public-key.asc 
+
+Rinominare il file generato lambrate-linux-public-key.asc.asc in :lambrate-linux-public-key-firmata.asc
+
+
+
