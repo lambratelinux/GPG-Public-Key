@@ -66,8 +66,8 @@ Rinominarlo in: lambrate-linux-public-key-firmata.asc    che si può dare a tutt
 
 • -----BEGIN PGP SIGNED MESSAGE-----
 • Hash: SHA256
-• 
-• - -----BEGIN PGP PUBLIC KEY BLOCK-----
+•
+• ------BEGIN PGP PUBLIC KEY BLOCK-----
 • 
 • mQINBGIBFggBEADtHOwg9JzBgpggska4B37l4l1HaTecBUF/wDR0y53Xcivl5hVu
 • N5bdiYHOUHiy3JQBSd7iapH31U5lXZJk+G0fUfy84hpQO52Ha9Fl5cL9WA+I79Lf
